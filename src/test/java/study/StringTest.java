@@ -2,6 +2,9 @@ package study;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
+import static jdk.internal.org.jline.utils.Colors.s;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringTest {
@@ -13,17 +16,16 @@ public class StringTest {
     }
 
     @Test
-    public void split() {
-        String[] values = "1".split(",");
-        assertThat(values).contains("1");
-        values = "1,2".split(",");
-        assertThat(values).containsExactly("1", "2");
+    void split() {
+        String[] actual1 = "1".split(",");
+        assertThat(actual1).contains("1");
+        System.out.println(Arrays.toString(actual1));
+
+        String[] actual2 = "1,2".split(",");
+        assertThat(actual2).contains("1","2");
+        System.out.println(Arrays.toString(actual2));
     }
-    @Test
-    public void substring() {
-        String input = "(1,2)";
-        String result = input.substring(1, input.length() - 1);
-        assertThat(result).isEqualTo("1,2");
-    }
+
+
 
 }
