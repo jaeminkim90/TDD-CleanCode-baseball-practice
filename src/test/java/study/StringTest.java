@@ -1,9 +1,12 @@
 package study;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -25,8 +28,8 @@ public class StringTest {
         System.out.println(Arrays.toString(actual1));
 
         String[] actual2 = "1,2".split(",");
-        assertThat(actual2).contains("1","2");
-        assertThat(actual2).containsExactly("1","2");
+        assertThat(actual2).contains("1", "2");
+        assertThat(actual2).containsExactly("1", "2");
         System.out.println(Arrays.toString(actual2));
     }
 
@@ -36,10 +39,10 @@ public class StringTest {
     void substring() {
         String actual = "(1,2)";
         actual = actual.substring(1);
-        actual = actual.substring(0,3);
+        actual = actual.substring(0, 3);
         System.out.println(actual);
         assertThat(actual).isEqualTo("1,2");
-     }
+    }
 
     // 테스트 요구사항 3
     // "abc" 값이 주어졌을 때 String의 charAt() 메소드를 활용해 특정 위치의 문자를 가져오는 학습 테스트를 구현한다.
@@ -48,20 +51,18 @@ public class StringTest {
     // JUnit의 @DisplayName을 활용해 테스트 메소드의 의도를 드러낸다
     @Test
     @DisplayName("예외 발생 테스트")
-    void charAt() {
+    void charAt(){
+
         assertThatThrownBy(() -> {
 
             String actual = "abc";
             System.out.println(actual.charAt(2));
+           throw new Exception("boom!");
 
-         throw new IndexOutOfBoundsException("boom!");
 
-        }).isInstanceOf(IndexOutOfBoundsException.class)
-                .hasMessageContaining("인덱스 범위를 초과했습니다.");
+        }).isInstanceOf(Exception.class)
+                .hasMessageContaining("boom");
     }
-
-
-
 
 
 }
