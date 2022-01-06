@@ -65,7 +65,6 @@ public class SetCollectionTest {
     }
 
     // 완료
-    //origin/practic commit test
 
 
 }
