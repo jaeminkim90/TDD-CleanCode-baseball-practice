@@ -64,5 +64,7 @@ public class SetCollectionTest {
         assertEquals(Boolean.parseBoolean(expected), actualNum);
     }
 
+    // 완료
+
 
 }
