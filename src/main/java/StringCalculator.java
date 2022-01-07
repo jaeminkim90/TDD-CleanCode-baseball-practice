@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class StringCalculator {
 
 
-    public static void calculator() {
-        Scanner scanner = new Scanner(System.in);
+    public static int calculator(String userString) {
+
+
         // 1. 입력
-        String actual = scanner.nextLine();
-        //String actual = "2 + 3 * 4 / 2";
+        String actual = userString;
 
         // 2. 분리
         String[] values = actual.split(" ");
@@ -44,10 +44,17 @@ public class StringCalculator {
         }
 
         // 4. 결과 출력
-        System.out.println("문자열 계산기 결과: " + result);
+        return result;
     }
 
     public static void main(String[] args) {
-        calculator();
+        calculator("1 + 2 + 3");
+    }
+
+
+    public static String[] splitString(String userString) {
+
+        return userString.split(" ");
+
     }
 }
