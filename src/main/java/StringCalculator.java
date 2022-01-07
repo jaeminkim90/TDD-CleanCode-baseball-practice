@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class StringCalculator {
@@ -48,7 +50,8 @@ public class StringCalculator {
     }
 
     public static void main(String[] args) {
-        calculator("1 + 2 + 3");
+
+
     }
 
 
@@ -57,4 +60,21 @@ public class StringCalculator {
         return userString.split(" ");
 
     }
+
+
+    public static List<Integer> creatNumberList(String[] values) {
+        List<Integer> numberArray = new ArrayList<>();
+
+        for (String s : values) {
+             char numberCheck = s.charAt(0);
+            if(numberCheck > 48 && numberCheck < 58){
+                numberArray.add(Integer.parseInt(s));
+            }
+        }
+        return numberArray;
+    }
+
+
+
+
 }

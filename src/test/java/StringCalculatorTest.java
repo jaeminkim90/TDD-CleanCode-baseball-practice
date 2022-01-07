@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,4 +24,14 @@ class StringCalculatorTest {
         assertThat(Arrays.toString(values)).isEqualTo("[1, +, 2, +, 3]");
 
     }
+
+    @Test
+    @DisplayName("문자 단위로 쪼개진 배열을 받아, 숫자만 리턴하는 테스트")
+    void creatNumberArray() {
+        String[] values = {"2", "+", "3", "+", "1"};
+        List<Integer> onlyNumber = StringCalculator.creatNumberList(values);
+        assertThat(onlyNumber.equals("[2, 3, 1]"));
+    }
+
+
 }
