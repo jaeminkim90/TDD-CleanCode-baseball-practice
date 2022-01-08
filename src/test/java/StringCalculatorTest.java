@@ -27,11 +27,39 @@ class StringCalculatorTest {
 
     @Test
     @DisplayName("문자 단위로 쪼개진 배열을 받아, 숫자만 리턴하는 테스트")
-    void creatNumberArray() {
-        String[] values = {"2", "+", "3", "+", "1"};
+    void creatNumberListTest() {
+        String[] values = {"1", "+", "2", "+", "3"};
+        List<Integer> expectList = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
         List<Integer> onlyNumber = StringCalculator.creatNumberList(values);
-        assertThat(onlyNumber.equals("[2, 3, 1]"));
+        assertThat(onlyNumber.equals(expectList)).isTrue();
     }
 
+    @Test
+    @DisplayName("문자 단위로 쪼개진 배열을 받아, 연산자만 리턴하는 테스트")
+    void creatOperatorListTest() {
+        String[] values = {"1", "+", "2", "-", "3"};
+        List<String> expectList = new ArrayList<String>(Arrays.asList("+", "-"));
+        List<String> onlyOperator = StringCalculator.creatOperatorList(values);
+        assertThat(onlyOperator.equals(expectList)).isTrue();
 
+    }
+
+    @Test
+    @DisplayName("문자 단위로 쪼개진 배열을 받아, 연산자만 리턴하는 테스트")
+    void calculateTest() {
+        List<Integer> numberList = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        List<String> operatorList = new ArrayList<String>(Arrays.asList("-", "+"));
+        int result = StringCalculator.calculate(numberList, operatorList);
+        assertEquals(2, result);
+    }
 }
+
+
+
+
+
+
+
+
+
+

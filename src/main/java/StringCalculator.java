@@ -4,57 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StringCalculator {
-
-
-    public static int calculator(String userString) {
-
-
-        // 1. 입력
-        String actual = userString;
-
-        // 2. 분리
-        String[] values = actual.split(" ");
-        System.out.println("쪼개진 문자 식: " + Arrays.toString(values));
-
-
-        // 3. 순차적으로 계산
-        int surNumber = 0;
-        int result = 0;
-
-        for (int i = 2; i < values.length; i++) {
-            int tempResult = 0;
-            surNumber = (Integer.parseInt(values[i]));
-
-
-            if (i == 2) {
-                result = (Integer.parseInt(values[i - 2]));
-            }
-
-            if (values[i - 1].equals("+")) {
-                tempResult = (result + surNumber);
-            } else if (values[i - 1].equals("-")) {
-                tempResult = (result - surNumber);
-            } else if (values[i - 1].equals("*")) {
-                tempResult = (result * surNumber);
-            } else if (values[i - 1].equals("/")) {
-                tempResult = (result / surNumber);
-            }
-
-
-            result = tempResult;
-            i++; // 연산 기호는 뛰어 넘고 숫자만 다루기 위해 i++
-        }
-
-        // 4. 결과 출력
-        return result;
-    }
-
-    public static void main(String[] args) {
-
-
-    }
-
-
+    
     public static String[] splitString(String userString) {
 
         return userString.split(" ");
@@ -66,8 +16,8 @@ public class StringCalculator {
         List<Integer> numberArray = new ArrayList<>();
 
         for (String s : values) {
-             char numberCheck = s.charAt(0);
-            if(numberCheck > 48 && numberCheck < 58){
+            char numberCheck = s.charAt(0);
+            if (numberCheck > 48 && numberCheck < 58) {
                 numberArray.add(Integer.parseInt(s));
             }
         }
@@ -75,6 +25,50 @@ public class StringCalculator {
     }
 
 
+    public static List<String> creatOperatorList(String[] values) {
+        List<String> operatorArray = new ArrayList<>();
+
+        for (String s : values) {
+            char operatorCheck = s.charAt(0);
+            if (operatorCheck < 48 || operatorCheck > 58) {
+                operatorArray.add(s);
+            }
+        }
+        return operatorArray;
+    }
 
 
+    public static int calculate(List<Integer> numberList, List<String> operatorList) {
+
+        int operatorListIndex = 0;
+        int result = 0;
+
+        for (int i = 1; i < numberList.size(); i++) {
+
+            if (i == 1) {
+                result = (numberList.get(i - 1));
+            }
+
+            if (operatorList.get(operatorListIndex).equals("+")) {
+                result = result + (numberList.get(i));
+            } else if (operatorList.get(operatorListIndex).equals("-")) {
+                result = result - (numberList.get(i));
+            } else if (operatorList.get(operatorListIndex).equals("*")) {
+                result = result * (numberList.get(i));
+            } else if (operatorList.get(operatorListIndex).equals("/")) {
+                result = result / (numberList.get(i));
+            }
+            operatorListIndex++;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numberList = new ArrayList<Integer>(Arrays.asList(2, 20, 4));
+        List<String> operatorList = new ArrayList<String>(Arrays.asList("*", "/"));
+        System.out.println(calculate(numberList, operatorList));
+    }
 }
+
+
+
