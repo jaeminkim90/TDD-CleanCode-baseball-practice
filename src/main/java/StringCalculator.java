@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StringCalculator {
-    
+
     public static String[] splitString(String userString) {
 
         return userString.split(" ");
