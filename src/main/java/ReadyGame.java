@@ -28,20 +28,39 @@ public class ReadyGame {
         return computerNumber;
     }
 
-    public static int[] splitNumber(String userNumber) {
+    public static List<Integer> splitNumber(String userNumber) {
 
-        int[] userNumberArray;
-        return null;
-
-
+        List<Integer> userNumberList = new ArrayList<>();
+        String[] splitUserNumber = userNumber.split("");
+        for (String eachNumber : splitUserNumber) {
+            userNumberList.add(Integer.parseInt(eachNumber));
+        }
+        return userNumberList;
     }
 
-    public static void validateNumber() {
+    public static boolean validateNumber(List<Integer> userNumberList) {
+        boolean verificationResult = false;
 
+        if (!(userNumberList.size() == 3)) {
+            return verificationResult;
+        }
+
+        for (Integer number : userNumberList) {
+            if (!(0 < number && number < 10)) {
+                return verificationResult;
+            }
+
+            if (!(Collections.frequency(userNumberList, number) == 1)) {
+                return verificationResult;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
-        System.out.println(creatRandomNumber());
+
+        List<Integer> userNumberList = Arrays.asList(4, 5, 6);
+        System.out.println(validateNumber(userNumberList));
     }
 
 
