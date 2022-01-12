@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,9 +17,13 @@ class ReadyGameTest {
 
     }
 
-
     @Test
     void creatRandomNumberTest() {
+        List<Integer> computerNumber = new ArrayList<>(Arrays.asList(1, 2, 3));
+        assertThat(computerNumber.size()).isEqualTo(3);
+        for (Integer number : computerNumber) {
+            assertThat(number.getClass().getSimpleName()).isEqualTo("Integer");
+        }
     }
 
     @Test

@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class ReadyGame {
 
@@ -12,8 +12,20 @@ public class ReadyGame {
         return userNumber;
     }
 
-    public static void creatRandomNumber() {
+    public static List<Integer> creatRandomNumber() {
 
+        List<Integer> computerNumber = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < 3; i++) {
+            int randomNumber = random.nextInt(10);
+            if (!(computerNumber.contains(randomNumber + 1))) {
+                computerNumber.add(randomNumber + 1);
+                continue;
+            }
+            i--;
+        }
+        return computerNumber;
     }
 
     public static int[] splitNumber(String userNumber) {
@@ -29,9 +41,8 @@ public class ReadyGame {
     }
 
     public static void main(String[] args) {
-        System.out.println(inputUserNumber());
+        System.out.println(creatRandomNumber());
     }
-
 
 
 }
