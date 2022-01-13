@@ -6,11 +6,14 @@
 - [ ] 컴퓨터의 랜덤 수 3자리 생성하기: creatRandomNumber
 - [ ] 입력 받은 숫자를 3개의 문자로 쪼갰을 때, 각각 1~9의 범위를 가지고 있으며, 총 3자리가 맞는지 검증: validateNumber
 
-2. 비교하기: Compare
+2. 결과 비교하기: Compare
 - [ ] 동일한 숫자가 있는지 확인: checkSameNumber
 - [ ] 같은 자리에 있는지 확인: checkSameLocation
 - [ ] 결과 판단하기: refereeGame
-- [ ] 결과 알려주기: showGameResult
+
+3. 게임 진행하기: Play
+- [ ] 순차적으로 게임을 진행: playGame
+- [ ] 게임을 최초 실행하는: Main
 ---
 
 

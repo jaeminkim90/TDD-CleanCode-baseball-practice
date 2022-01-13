@@ -26,12 +26,12 @@ public class Play {
             int sameNumberCount = compare.checkSameNumber(userNumber, computerNumber);
             int sameLocationNumberCount = compare.checkSameLocation(userNumber, computerNumber);
 
-
+            // 게임의 결과를 확인한다
             String gameResult = compare.refereeGame(sameNumberCount, sameLocationNumberCount);
             System.out.println(gameResult);
 
             // 숫자를 모두 맞혔을 경우, 사용자의 입력을 반복하는 while 값을 false로 변경한다.
-            gameState = stopGameLoop(sameNumberCount,sameLocationNumberCount);
+            gameState = stopGameLoop(sameNumberCount, sameLocationNumberCount);
 
             // 숫자를 모두 맞혔을 경우, 게임 재개 여부를 확인한다.
             if (askRegame(sameNumberCount, sameLocationNumberCount) == 1) {
@@ -71,7 +71,7 @@ public class Play {
     private boolean stopGameLoop(int sameNumberCount, int sameLocationNumberCount) {
         boolean gameState = true;
         if (sameNumberCount == 3 && sameLocationNumberCount == 3) {
-           return false;
+            return false;
         }
         return gameState;
     }
