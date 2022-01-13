@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ReadyGame {
 
-    public static String inputUserNumber() {
+    public String inputUserNumber() {
         String userNumber;
         Scanner scanner;
 
@@ -12,7 +12,7 @@ public class ReadyGame {
         return userNumber;
     }
 
-    public static List<Integer> creatRandomNumber() {
+    public List<Integer> creatRandomNumber() {
 
         List<Integer> computerNumber = new ArrayList<>();
         Random random = new Random();
@@ -28,7 +28,7 @@ public class ReadyGame {
         return computerNumber;
     }
 
-    public static List<Integer> splitNumber(String userNumber) {
+    public List<Integer> splitNumber(String userNumber) {
 
         List<Integer> userNumberList = new ArrayList<>();
         String[] splitUserNumber = userNumber.split("");
@@ -38,7 +38,7 @@ public class ReadyGame {
         return userNumberList;
     }
 
-    public static boolean validateNumber(List<Integer> userNumberList) {
+    public boolean validateNumber(List<Integer> userNumberList) {
         boolean verificationResult = false;
 
         if (!(userNumberList.size() == 3)) {
@@ -57,7 +57,7 @@ public class ReadyGame {
         return true;
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
         List<Integer> userNumberList = Arrays.asList(4, 5, 6);
         System.out.println(validateNumber(userNumberList));

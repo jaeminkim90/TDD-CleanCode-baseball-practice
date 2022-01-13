@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReadyGameTest {
 
+    ReadyGame readyGame = new ReadyGame();
+
     @Test
     void inputUserNumberTest() {
 
@@ -22,7 +24,8 @@ class ReadyGameTest {
 
     @Test
     void creatRandomNumberTest() {
-        List<Integer> computerNumber = ReadyGame.creatRandomNumber();
+
+        List<Integer> computerNumber = readyGame.creatRandomNumber();
         SoftAssertions softly = new SoftAssertions();
 
         assertThat(computerNumber.size()).isEqualTo(3); // 3자리 숫자 확인
@@ -36,7 +39,7 @@ class ReadyGameTest {
     @Test
     void splitNumberTest() {
         String userNumber = "456";
-        List<Integer> userNumberList = ReadyGame.splitNumber(userNumber);
+        List<Integer> userNumberList = readyGame.splitNumber(userNumber);
 
         assertThat(userNumberList.toString()).isEqualTo("[4, 5, 6]");
 
@@ -46,7 +49,7 @@ class ReadyGameTest {
     @Test
     void validateNumberTest() {
         List<Integer> userNumberList = Arrays.asList(1, 2, 3);
-        boolean validateResult = ReadyGame.validateNumber(userNumberList);
+        boolean validateResult = readyGame.validateNumber(userNumberList);
 
         assertThat(validateResult).isEqualTo(true); // 테스트 1: 프로덕트 코드에 기대하는 결과가 true인지 확인
 
@@ -57,4 +60,8 @@ class ReadyGameTest {
             assertThat(Collections.frequency(userNumberList, number)).isEqualTo(1); // 해당 값이 1개만 존재
         }
     }
+
+
+
+
 }
