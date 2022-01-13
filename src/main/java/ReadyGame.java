@@ -57,11 +57,6 @@ public class ReadyGame {
         return true;
     }
 
-    public void main(String[] args) {
-
-        List<Integer> userNumberList = Arrays.asList(4, 5, 6);
-        System.out.println(validateNumber(userNumberList));
-    }
 
 
 }
